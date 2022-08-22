@@ -5,15 +5,17 @@ import java.util.Deque;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+//Тесты лучше вынести в отдельный от основного кода класс
 public class ReversePolishNotationCalculatorTest {
 
-    ReversePolishNotationCalculator calculator = new ReversePolishNotationCalculator();
+    ReversePolishNotationCalculator calculator = new ReversePolishNotationCalculator(); //Нет модификатора доступа у этого поля.
 
-    // Проверяем на пробелы
+    // Проверяем на пробелы - вместо комментариев можно использовать @DisplayName("Проверяем на пробелы"), через эту аннотацию можно задать тесту подходящее имя.
     @Test
     public void shouldSplit() {
         int value = calculator.calculatePolishNotation("  1   3  +  ");
-        assertEquals(4, value);
+        assertEquals(4, value); //две строчки можно совместить в одну - assertEquals(4, calculator.calculatePolishNotation("  1   3  +  ")), 
+        //стоит добавлять в ассерты какие-нибудь маркерные сообщения, так можно будет понять на каком конкретно моменте тест падает.
     }
 
     //Проверка сложения
